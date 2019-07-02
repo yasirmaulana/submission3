@@ -3,6 +3,9 @@
     <string name="movie_title" translatable="false">Judul Movie</string>
     <string name="movie_description" translatable="false">Deskripsi Movie</string>
     <string name="detail">Detail</string>
+    <string name="tanggal_movie">Tanggal Movie</string>
+    <string name="user_score">user score</string>
+    <string name="user_score_">User Score</string>
 
     <string-array name="data_name">
         <item>A Star Is Born (2018)</item>
@@ -18,7 +21,35 @@
         <item>Black Panther (2018)</item>
     </string-array>
 
-    <string-array name="data_description">
+    <string-array name="data_moviedate">
+        <item>October 6, 2018</item>
+        <item>December 21, 2018</item>
+        <item>April 27, 2018</item>
+        <item>May 13, 2018</item>
+        <item>January 10, 2018</item>
+        <item>November 23, 2018</item>
+        <item>February 13, 2018</item>
+        <item>April 16, 2018</item>
+        <item>January 29, 2018</item>
+        <item>February 2, 2018</item>
+        <item>Juny 12, 2018</item>
+    </string-array>
+
+    <string-array name="data_score">
+        <item>75%</item>
+        <item>68%</item>
+        <item>83%</item>
+        <item>78%</item>
+        <item>82%</item>
+        <item>77%</item>
+        <item>76%</item>
+        <item>92%</item>
+        <item>87%</item>
+        <item>75%</item>
+        <item>88%</item>
+    </string-array>
+
+    <string-array name="data_overview">
         <item>Seasoned musician Jackson Maine discovers — and falls in love with — struggling artist Ally. She has just about given up on her dream to make it big as a singer — until Jack coaxes her into the spotlight. But even as Ally\'s career takes off, the personal side of their relationship is breaking down, as Jack fights an ongoing battle with his own internal demons.</item>
         <item>Once home to the most advanced civilization on Earth, Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. With a vast army at his disposal, Orm plans to conquer the remaining oceanic people and then the surface world. Standing in his way is Arthur Curry, Orm\'s half-human, half-Atlantean brother and true heir to the throne.</item>
         <item>As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.</item>
@@ -44,5 +75,19 @@
         <item>@drawable/poster_venom</item>
         <item>@drawable/poster_ralph</item>
         <item>@drawable/poster_blackpanther</item>
+    </array>
+
+    <array name="data_poster">
+        <item>@drawable/poster_a_star_width</item>
+        <item>@drawable/poster_aquaman_width</item>
+        <item>@drawable/poster_avenger_width</item>
+        <item>@drawable/poster_birdbox_width</item>
+        <item>@drawable/poster_bumblebee_width</item>
+        <item>@drawable/poster_deadpool_width</item>
+        <item>@drawable/poster_robinhood_width</item>
+        <item>@drawable/poster_spiderman_width</item>
+        <item>@drawable/poster_venom_width</item>
+        <item>@drawable/poster_ralph_width</item>
+        <item>@drawable/poster_blackpanther_width</item>
     </array>
 </resources>

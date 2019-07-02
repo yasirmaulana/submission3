@@ -9,8 +9,10 @@ import com.bumptech.glide.Glide;
 
 public class MovieDetail extends AppCompatActivity {
     public static final String EXTRA_MOVIE = "extra_movie";
+    ImageView imgPosterDetail;
     ImageView imgPhotoDetail;
-    TextView tvTittle;
+    TextView tvTittleDetail;
+    TextView tvUserScoreDetail;
     TextView tvOverview;
 
     @Override
@@ -18,13 +20,17 @@ public class MovieDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
+        imgPosterDetail = findViewById(R.id.img_poster_detail);
         imgPhotoDetail = findViewById(R.id.img_photo_detail);
-        tvTittle = findViewById(R.id.txt_name_detail);
-        tvOverview = findViewById(R.id.txt_description_detail);
+        tvTittleDetail = findViewById(R.id.tv_tittle_detail);
+        tvUserScoreDetail = findViewById(R.id.tv_user_score_detail);
+        tvOverview = findViewById(R.id.tv_overview);
 
         Movie movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
+        Glide.with(this).load(movie.getPoster()).into(imgPosterDetail);
         Glide.with(this).load(movie.getPhoto()).into(imgPhotoDetail);
-        tvTittle.setText(movie.getName());
-        tvOverview.setText(movie.getDescription());
+        tvTittleDetail.setText(movie.getName());
+        tvUserScoreDetail.setText(movie.getScore());
+        tvOverview.setText(movie.getOverview());
     }
 }

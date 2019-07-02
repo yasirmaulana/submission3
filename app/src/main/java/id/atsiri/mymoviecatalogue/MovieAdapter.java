@@ -21,7 +21,7 @@ public class MovieAdapter extends BaseAdapter {
         this.movies = movies;
     }
 
-    public MovieAdapter(Context context) {
+    MovieAdapter(Context context) {
         this.context = context;
         movies = new ArrayList<>();
     }
@@ -54,20 +54,23 @@ public class MovieAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        private TextView txtName;
-        private TextView txtDescription;
         private ImageView imgPhoto;
+        private TextView tvTittle;
+        private TextView tvMovieDate;
+        private TextView tvScore;
 
         ViewHolder(View view) {
-            txtName = view.findViewById(R.id.txt_name);
-            txtDescription = view.findViewById(R.id.txt_description);
             imgPhoto = view.findViewById(R.id.img_photo);
+            tvTittle = view.findViewById(R.id.tv_tittle);
+            tvMovieDate = view.findViewById(R.id.tv_movie_date);
+            tvScore = view.findViewById(R.id.tv_user_score);
         }
 
         void bind(Movie movie) {
-            txtName.setText(movie.getName());
-            txtDescription.setText(movie.getDescription());
             imgPhoto.setImageResource(movie.getPhoto());
+            tvTittle.setText(movie.getName());
+            tvMovieDate.setText(movie.getMovieDate());
+            tvScore.setText(movie.getScore());
         }
     }
 }

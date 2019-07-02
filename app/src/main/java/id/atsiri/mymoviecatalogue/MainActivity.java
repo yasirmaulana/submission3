@@ -15,11 +15,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    private TypedArray dataPoster;
+    private TypedArray dataPhoto;
     private String[] dataName;
-    private String[] dataDescription;
-    private TypedArray dataPhoto
-            ;
+    private String[] dataMovieDate;
+    private String[] dataScore;
+    private String[] dataOverview;
     private MovieAdapter adapter;
     private ArrayList<Movie> movies;
 
@@ -48,23 +49,30 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void prepare() {
+        dataPoster = getResources().obtainTypedArray(R.array.data_poster);
+        dataPhoto = getResources().obtainTypedArray(R.array.data_photo);
+        dataName = getResources().getStringArray(R.array.data_name);
+        dataMovieDate = getResources().getStringArray(R.array.data_moviedate);
+        dataScore = getResources().getStringArray(R.array.data_score);
+        dataOverview = getResources().getStringArray(R.array.data_overview);
+    }
+
     private void addItem() {
         movies = new ArrayList<>();
 
         for (int i = 0; i < dataName.length; i++) {
             Movie movie = new Movie();
+            movie.setPoster(dataPoster.getResourceId(i, -1));
             movie.setPhoto(dataPhoto.getResourceId(i, -1));
             movie.setName(dataName[i]);
-            movie.setDescription(dataDescription[i]);
+            movie.setMovieDate(dataMovieDate[i]);
+            movie.setScore(dataScore[i]);
+            movie.setOverview(dataOverview[i]);
             movies.add(movie);
         }
         adapter.setMovies(movies);
     }
 
-    private void prepare() {
-        dataName = getResources().getStringArray(R.array.data_name);
-        dataDescription = getResources().getStringArray(R.array.data_description);
-        dataPhoto= getResources().obtainTypedArray(R.array.data_photo);
-    }
 
 }

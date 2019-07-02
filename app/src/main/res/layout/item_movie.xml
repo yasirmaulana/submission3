@@ -12,25 +12,47 @@
         android:scaleType="fitXY"/>
 
     <TextView
-        android:id="@+id/txt_name"
+        android:id="@+id/tv_tittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_toEndOf="@id/img_photo"
         android:text="@string/movie_title"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/txt_description"
+        android:id="@+id/tv_movie_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_name"
+        android:layout_below="@id/tv_tittle"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/img_photo"
-        android:ellipsize="end"
-        android:maxLines="3"
-        android:text="@string/movie_description"/>
+        android:text="@string/tanggal_movie"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tv_user_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_movie_date"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/img_photo"
+        android:text="@string/user_score"
+        android:textSize="17sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/user_score_"
+        android:layout_toRightOf="@id/tv_user_score"
+        android:layout_below="@id/tv_movie_date"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:textSize="17sp"
+        android:textStyle="bold"/>
 
 </RelativeLayout>
