@@ -4,41 +4,62 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Movie implements Parcelable {
-    private int poster;
-    private int photo;
+
+    private String banner;
+    private String poster;
     private String name;
     private String score;
     private String movieDate;
     private String overview;
 
-    public int getPoster() { return poster; }
-    public void setPoster(int poster) { this.poster = poster; }
-
-    public int getPhoto() {
-        return photo;
+    public String getBanner() {
+        return banner;
     }
-    public void setPhoto(int photo) {
-        this.photo = photo;
+
+    public void setBanner(String banner) {
+        this.banner = banner;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
     }
 
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getScore() { return score; }
-    public void setScore(String score) { this.score = score; }
-
-    public String getMovieDate() { return movieDate; }
-    public void setMovieDate(String movieDate) { this.movieDate = movieDate; }
-
-    public String getOverview() { return overview; }
-    public void setOverview(String overview) { this.overview = overview; }
-
-    public Movie() {
+    public String getScore() {
+        return score;
     }
+
+    public void setScore(String score) {
+        this.score = score;
+    }
+
+    public String getMovieDate() {
+        return movieDate;
+    }
+
+    public void setMovieDate(String movieDate) {
+        this.movieDate = movieDate;
+    }
+
+    public String getOverview() {
+        return overview;
+    }
+
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
 
     @Override
     public int describeContents() {
@@ -47,27 +68,30 @@ public class Movie implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.poster);
-        dest.writeInt(this.photo);
+        dest.writeString(this.poster);
+        dest.writeString(this.banner);
         dest.writeString(this.name);
         dest.writeString(this.score);
         dest.writeString(this.movieDate);
         dest.writeString(this.overview);
     }
 
-    protected Movie(Parcel in) {
-        this.poster = in.readInt();
-        this.photo = in.readInt();
+    Movie() {
+    }
+
+    private Movie(Parcel in) {
+        this.poster = in.readString();
+        this.banner = in.readString();
         this.name = in.readString();
         this.score = in.readString();
         this.movieDate = in.readString();
         this.overview = in.readString();
     }
 
-    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
         @Override
-        public Movie createFromParcel(Parcel source) {
-            return new Movie(source);
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
         }
 
         @Override
@@ -75,4 +99,5 @@ public class Movie implements Parcelable {
             return new Movie[size];
         }
     };
+
 }

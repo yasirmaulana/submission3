@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-public class MovieDetail extends AppCompatActivity {
+public class MovieDetailActivity extends AppCompatActivity {
     public static final String EXTRA_MOVIE = "extra_movie";
     ImageView imgPosterDetail;
     ImageView imgPhotoDetail;
@@ -27,8 +27,8 @@ public class MovieDetail extends AppCompatActivity {
         tvOverview = findViewById(R.id.tv_overview);
 
         Movie movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
-        Glide.with(this).load(movie.getPoster()).into(imgPosterDetail);
-        Glide.with(this).load(movie.getPhoto()).into(imgPhotoDetail);
+        Glide.with(this).load(movie.getPoster()).into(imgPhotoDetail);
+        Glide.with(this).load(movie.getBanner()).into(imgPosterDetail);
         tvTittleDetail.setText(movie.getName());
         tvUserScoreDetail.setText(movie.getScore());
         tvOverview.setText(movie.getOverview());
