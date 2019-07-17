@@ -23,7 +23,6 @@ import java.util.ArrayList;
 public class MovieListFragment extends Fragment implements View.OnClickListener {
     private RecyclerView rvMovies;
     private ArrayList<Movie> list = new ArrayList<>();
-    CardView cvMovies;
 
     public MovieListFragment() {
         // Required empty public constructor
@@ -46,8 +45,6 @@ public class MovieListFragment extends Fragment implements View.OnClickListener 
         list.addAll(MoviesData.getListData());
         showRecyclerList();
 
-//        cvMovies = view.findViewById(R.id.cv_movies);
-//        cvMovies.setOnClickListener(this);
     }
 
     private void showSelectedMovie(Movie movie) {
