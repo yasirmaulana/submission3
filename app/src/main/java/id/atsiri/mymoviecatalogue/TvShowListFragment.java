@@ -1,6 +1,7 @@
 package id.atsiri.mymoviecatalogue;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -44,10 +45,23 @@ public class TvShowListFragment extends Fragment implements View.OnClickListener
         showRecyclerList();
     }
 
+    private void showSelectedTvShow(TvShow tvShow) {
+        Intent tvShowDetail = new Intent(getActivity(), TvShowDetailActivity.class);
+        tvShowDetail.putExtra(TvShowDetailActivity.EXTRA_TVSHOW, tvShow);
+        startActivity(tvShowDetail);
+    }
+
     private void showRecyclerList() {
         rvTvShows.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         TvShowsCardViewAdapter tvShowsCardViewAdapter = new TvShowsCardViewAdapter(list);
         rvTvShows.setAdapter(tvShowsCardViewAdapter);
+
+        tvShowsCardViewAdapter.setOnItemClickCallback(new TvShowsCardViewAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(TvShow data) {
+                showSelectedTvShow(data);
+            }
+        });
     }
 
     @Override

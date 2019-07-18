@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -15,6 +14,11 @@ import java.util.ArrayList;
 
 public class TvShowsCardViewAdapter extends RecyclerView.Adapter<TvShowsCardViewAdapter.CardViewViewHolder> {
     private ArrayList<TvShow> listTvShow;
+    private OnItemClickCallback onItemClickCallback;
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
 
     public TvShowsCardViewAdapter(ArrayList<TvShow> list) {
         this.listTvShow = list;
@@ -38,6 +42,12 @@ public class TvShowsCardViewAdapter extends RecyclerView.Adapter<TvShowsCardView
         holder.tvUserScore.setText(tvShow.getUserScore());
         holder.tvTvShowDate.setText(tvShow.getTvShowDate());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickCallback.onItemClicked(listTvShow.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
@@ -56,5 +66,9 @@ public class TvShowsCardViewAdapter extends RecyclerView.Adapter<TvShowsCardView
             tvUserScore = itemView.findViewById(R.id.tv_user_score_tvshow);
             tvTvShowDate = itemView.findViewById(R.id.tv_tvshow_date);
         }
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(TvShow data);
     }
 }

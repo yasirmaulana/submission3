@@ -9,11 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.ListViewHolder> {
+public class MovieCardViewAdapter extends RecyclerView.Adapter<MovieCardViewAdapter.ListViewHolder> {
     private ArrayList<Movie> movieList;
     private OnItemClickCallback onItemClickCallback;
 
@@ -21,7 +20,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.List
         this.onItemClickCallback = onItemClickCallback;
     }
 
-    public MovieListAdapter(ArrayList<Movie> list) {
+    public MovieCardViewAdapter(ArrayList<Movie> list) {
         this.movieList = list;
     }
 
