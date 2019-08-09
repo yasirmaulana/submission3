@@ -15,22 +15,22 @@ public class MovieDetailActivity extends AppCompatActivity {
     TextView tvUserScoreDetail;
     TextView tvOverview;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_detail);
-
-        imgPosterDetail = findViewById(R.id.img_poster_detail);
-        imgPhotoDetail = findViewById(R.id.img_photo_detail);
-        tvTittleDetail = findViewById(R.id.tv_tittle_detail);
-        tvUserScoreDetail = findViewById(R.id.tv_user_score_detail);
-        tvOverview = findViewById(R.id.tv_overview);
-
-        Movie movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
-        Glide.with(this).load(movie.getPoster()).into(imgPhotoDetail);
-        Glide.with(this).load(movie.getBanner()).into(imgPosterDetail);
-        tvTittleDetail.setText(movie.getName());
-        tvUserScoreDetail.setText(movie.getScore());
-        tvOverview.setText(movie.getOverview());
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_movie_detail);
+//
+//        imgPosterDetail = findViewById(R.id.img_poster_detail);
+//        imgPhotoDetail = findViewById(R.id.img_photo_detail);
+//        tvTittleDetail = findViewById(R.id.tv_tittle_detail);
+//        tvUserScoreDetail = findViewById(R.id.tv_user_score_detail);
+//        tvOverview = findViewById(R.id.tv_overview);
+//
+//        MovieItems movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
+//        Glide.with(this).load(movie.getPoster()).into(imgPhotoDetail);
+//        Glide.with(this).load(movie.getBanner()).into(imgPosterDetail);
+//        tvTittleDetail.setText(movie.getName());
+//        tvUserScoreDetail.setText(movie.getScore());
+//        tvOverview.setText(movie.getOverview());
+//    }
 }

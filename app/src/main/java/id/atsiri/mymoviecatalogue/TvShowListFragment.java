@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import id.atsiri.mymoviecatalogue.adapter.TvShowsAdapter;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,10 +55,10 @@ public class TvShowListFragment extends Fragment implements View.OnClickListener
 
     private void showRecyclerList() {
         rvTvShows.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-        TvShowsCardViewAdapter tvShowsCardViewAdapter = new TvShowsCardViewAdapter(list);
+        TvShowsAdapter tvShowsCardViewAdapter = new TvShowsAdapter(list);
         rvTvShows.setAdapter(tvShowsCardViewAdapter);
 
-        tvShowsCardViewAdapter.setOnItemClickCallback(new TvShowsCardViewAdapter.OnItemClickCallback() {
+        tvShowsCardViewAdapter.setOnItemClickCallback(new TvShowsAdapter.OnItemClickCallback() {
             @Override
             public void onItemClicked(TvShow data) {
                 showSelectedTvShow(data);

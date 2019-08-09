@@ -1,24 +1,16 @@
 package id.atsiri.mymoviecatalogue;
 
-import android.content.ClipData;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-//    TextView tvStrUserScore, tvStrPlayTrailer, tvStrOverview;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -28,22 +20,21 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.navigation_movies:
-
                     fragment = new MovieListFragment();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.container_layout, fragment, fragment.getClass().getSimpleName())
                             .commit();
-
                     return true;
-                case R.id.navigation_tvshow:
 
+                case R.id.navigation_tvshow:
                     fragment = new TvShowListFragment();
                     getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.container_layout, fragment, fragment.getClass().getSimpleName())
                             .commit();
                     return true;
+
             }
             return false;
         }
@@ -53,10 +44,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        tvStrUserScore = findViewById(R.id.str_userscore);
-//        tvStrPlayTrailer = findViewById(R.id.str_playtrailer);
-//        tvStrOverview = findViewById(R.id.str_overview);
-
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -65,15 +52,12 @@ public class MainActivity extends AppCompatActivity {
             navView.setSelectedItemId(R.id.navigation_movies);
         }
 
-//        String userScore = String.format(getResources().getString(R.string.user_score));
-//        tvStrUserScore.setText(userScore);
-//
-//        String playTrailer = String.format(getResources().getString(R.string.play_trailer));
-//        tvStrPlayTrailer.setText(playTrailer);
-//
-//        String overView = String.format(getResources().getString(R.string.overview));
-//        tvStrOverview.setText(overView);
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

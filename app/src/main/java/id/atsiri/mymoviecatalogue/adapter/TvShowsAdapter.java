@@ -1,4 +1,4 @@
-package id.atsiri.mymoviecatalogue;
+package id.atsiri.mymoviecatalogue.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -12,7 +12,10 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class TvShowsCardViewAdapter extends RecyclerView.Adapter<TvShowsCardViewAdapter.CardViewViewHolder> {
+import id.atsiri.mymoviecatalogue.R;
+import id.atsiri.mymoviecatalogue.TvShow;
+
+public class TvShowsAdapter extends RecyclerView.Adapter<TvShowsAdapter.CardViewViewHolder> {
     private ArrayList<TvShow> listTvShow;
     private OnItemClickCallback onItemClickCallback;
 
@@ -20,7 +23,7 @@ public class TvShowsCardViewAdapter extends RecyclerView.Adapter<TvShowsCardView
         this.onItemClickCallback = onItemClickCallback;
     }
 
-    public TvShowsCardViewAdapter(ArrayList<TvShow> list) {
+    public TvShowsAdapter(ArrayList<TvShow> list) {
         this.listTvShow = list;
     }
 
