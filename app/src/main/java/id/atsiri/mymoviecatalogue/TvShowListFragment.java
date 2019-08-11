@@ -18,11 +18,7 @@ import java.util.ArrayList;
 
 import id.atsiri.mymoviecatalogue.adapter.TvShowsAdapter;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class TvShowListFragment extends Fragment {
+public class TvShowListFragment extends Fragment implements View.OnClickListener {
     private TvShowsAdapter adapter;
     private ProgressBar progressBar;
     private TvShowViewModel tvShowViewModel;
@@ -54,6 +50,13 @@ public class TvShowListFragment extends Fragment {
 
         tvShowViewModel.setTvShow();
         showLoading(true);
+
+        adapter.setOnItemClickCallback(new TvShowsAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(TvShowItems data) {
+                showSelectedTvShow(data);
+            }
+        });
     }
 
     private Observer<ArrayList<TvShowItems>> getTvShow = new Observer<ArrayList<TvShowItems>>() {
@@ -74,5 +77,14 @@ public class TvShowListFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onClick(View v) {
 
+    }
+
+    private void showSelectedTvShow(TvShowItems tvShow) {
+        Intent tvShowDetail = new Intent(getActivity(), TvShowDetailActivity.class);
+        tvShowDetail.putExtra(TvShowDetailActivity.EXTRA_TVSHOW, tvShow);
+        startActivity(tvShowDetail);
+    }
 }

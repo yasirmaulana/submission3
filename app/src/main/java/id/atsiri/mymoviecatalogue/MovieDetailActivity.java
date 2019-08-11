@@ -45,9 +45,8 @@ public class MovieDetailActivity extends AppCompatActivity {
         @Override
         public void onChanged(@Nullable MovieDetail movieDetail) {
             if (movieDetail != null) {
-                String sPath = "https://image.tmdb.org/t/p/w500";
+                String sPath = "https://image.tmdb.org/t/p/w342";
 
-//                progressBar = findViewById(R.id.progressBar);
                 backdropDetail = findViewById(R.id.backdrop_detail);
                 posterDetail = findViewById(R.id.poster_detail);
                 tvTitleDetail = findViewById(R.id.tv_tittle_detail);

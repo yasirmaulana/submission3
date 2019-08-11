@@ -8,30 +8,20 @@
     android:background="#F6726F6F"
     tools:context=".TvShowDetailActivity">
 
-    <!--<ProgressBar-->
-        <!--android:id="@+id/progressBar4"-->
-        <!--style="?android:attr/progressBarStyle"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:visibility="gone"/>-->
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
         <ImageView
-            android:id="@+id/img_tvshow_poster_detail"
+            android:id="@+id/backdrop_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/poster_a_star_width" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <LinearLayout
             android:id="@+id/linearLayout_tvshow"
@@ -42,10 +32,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_tvshow_poster_detail" />
+            app:layout_constraintTop_toBottomOf="@+id/backdrop_detail" />
 
         <ImageView
-            android:id="@+id/img_tvshow_photo_detail"
+            android:id="@+id/poster_detail"
             android:layout_width="100dp"
             android:layout_height="150dp"
             android:layout_marginStart="24dp"
@@ -55,7 +45,7 @@
             app:layout_constraintTop_toTopOf="@+id/linearLayout_tvshow" />
 
         <TextView
-            android:id="@+id/tv_tvshow_title_detail"
+            android:id="@+id/title_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -65,13 +55,13 @@
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout_tvshow"
-            app:layout_constraintStart_toEndOf="@+id/img_tvshow_photo_detail"
+            app:layout_constraintStart_toEndOf="@+id/poster_detail"
             app:layout_constraintTop_toTopOf="@+id/linearLayout_tvshow"
             tools:text="Judul movie" />
 
 
         <TextView
-            android:id="@+id/tv_tvshow_userscore_detail"
+            android:id="@+id/vote_average_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -79,8 +69,8 @@
             android:textColor="@android:color/white"
             android:textSize="19sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/img_tvshow_photo_detail"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tvshow_title_detail"
+            app:layout_constraintStart_toEndOf="@+id/poster_detail"
+            app:layout_constraintTop_toBottomOf="@+id/title_detail"
             tools:text="75%" />
 
         <TextView
@@ -95,8 +85,8 @@
             android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout_tvshow"
-            app:layout_constraintStart_toEndOf="@+id/tv_tvshow_userscore_detail"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tvshow_title_detail" />
+            app:layout_constraintStart_toEndOf="@+id/vote_average_detail"
+            app:layout_constraintTop_toBottomOf="@+id/title_detail" />
 
         <TextView
             android:id="@+id/str_playtrailer"
@@ -113,8 +103,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout_tvshow"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout_tvshow"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/img_tvshow_photo_detail"
-            app:layout_constraintTop_toBottomOf="@+id/tv_tvshow_userscore_detail"
+            app:layout_constraintStart_toEndOf="@+id/poster_detail"
+            app:layout_constraintTop_toBottomOf="@+id/vote_average_detail"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
@@ -133,7 +123,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout_tvshow" />
 
         <TextView
-            android:id="@+id/tv_tvshow_overview"
+            android:id="@+id/overview_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -149,6 +139,21 @@
             app:layout_constraintTop_toBottomOf="@+id/str_overview"
             app:layout_constraintVertical_bias="1.0"
             tools:text="overview movie" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

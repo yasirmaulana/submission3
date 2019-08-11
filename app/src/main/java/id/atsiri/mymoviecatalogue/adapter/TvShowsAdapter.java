@@ -18,6 +18,12 @@ import id.atsiri.mymoviecatalogue.TvShowItems;
 public class TvShowsAdapter extends RecyclerView.Adapter<TvShowsAdapter.TvShowViewHolder> {
     private ArrayList<TvShowItems> mData = new ArrayList<>();
 
+    private OnItemClickCallback  onItemClickCallback;
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
     public void setData(ArrayList<TvShowItems> items) {
         mData.clear();
         mData.addAll(items);
@@ -63,7 +69,17 @@ public class TvShowsAdapter extends RecyclerView.Adapter<TvShowsAdapter.TvShowVi
             Glide.with(itemView.getContext())
                     .load(tvShowItems.getBackdropPath())
                     .into(ivBackdropPath);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickCallback.onItemClicked(tvShowItems);
+                }
+            });
         }
     }
 
+    public interface OnItemClickCallback {
+        void onItemClicked(TvShowItems data);
+    }
 }

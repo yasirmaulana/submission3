@@ -6,13 +6,33 @@ import android.os.Parcelable;
 import org.json.JSONObject;
 
 //public class TvShowItems implements Parcelable {
-public class TvShowItems {
+public class TvShowItems implements Parcelable {
 
     private int id;
     private String backdropPath, voteAverage, title, firstAirDate;
 
     TvShowItems() {
     }
+
+    protected TvShowItems(Parcel in) {
+        id = in.readInt();
+        backdropPath = in.readString();
+        voteAverage = in.readString();
+        title = in.readString();
+        firstAirDate = in.readString();
+    }
+
+    public static final Creator<TvShowItems> CREATOR = new Creator<TvShowItems>() {
+        @Override
+        public TvShowItems createFromParcel(Parcel in) {
+            return new TvShowItems(in);
+        }
+
+        @Override
+        public TvShowItems[] newArray(int size) {
+            return new TvShowItems[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -73,5 +93,19 @@ public class TvShowItems {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(backdropPath);
+        dest.writeString(voteAverage);
+        dest.writeString(title);
+        dest.writeString(firstAirDate);
     }
 }

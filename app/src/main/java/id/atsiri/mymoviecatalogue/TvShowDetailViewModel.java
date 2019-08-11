@@ -12,28 +12,28 @@ import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
 
-public class MovieDetailViewModel extends ViewModel {
-    private MutableLiveData<MovieDetail> movieDetailData = new MutableLiveData<>();
+public class TvShowDetailViewModel extends ViewModel {
+    private MutableLiveData<TvShowDetail> tvShowDetailData = new MutableLiveData<>();
 
-    void setMovieDetail(final int movieId) {
+    void setTvShowDetail(final int tvShowId) {
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "https://api.themoviedb.org/3/movie/"+ movieId +"?api_key=f5cac66d5ff96a61424f69d3dfe6757d&language=en-US";
-        final MovieDetail mMovieDetail = new MovieDetail();
+        String url = "https://api.themoviedb.org/3/tv/"+ tvShowId +"?api_key=f5cac66d5ff96a61424f69d3dfe6757d&language=en-US";
+        final TvShowDetail mTvShowDetail = new TvShowDetail();
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
                     String result = new String(responseBody);
                     JSONObject responseObject = new JSONObject(result);
-                    MovieDetail modelMovieDetail = new MovieDetail(responseObject);
+                    TvShowDetail modelTvShowDetail = new TvShowDetail(responseObject);
 
-                    mMovieDetail.setBackdropPath(modelMovieDetail.getBackdropPath());
-                    mMovieDetail.setPosterPath(modelMovieDetail.getPosterPath());
-                    mMovieDetail.setTitle(modelMovieDetail.getTitle());
-                    mMovieDetail.setVoteAverage(modelMovieDetail.getVoteAverage());
-                    mMovieDetail.setOverView(modelMovieDetail.getOverView());
+                    mTvShowDetail.setBackdropPath(modelTvShowDetail.getBackdropPath());
+                    mTvShowDetail.setPosterPath(modelTvShowDetail.getPosterPath());
+                    mTvShowDetail.setTitle(modelTvShowDetail.getTitle());
+                    mTvShowDetail.setVoteAverage(modelTvShowDetail.getVoteAverage());
+                    mTvShowDetail.setOverView(modelTvShowDetail.getOverView());
 
-                    movieDetailData.postValue(mMovieDetail);
+                    tvShowDetailData.postValue(mTvShowDetail);
                 } catch (Exception e) {
                     Log.d("Exception", e.getMessage());
                 }
@@ -46,8 +46,6 @@ public class MovieDetailViewModel extends ViewModel {
         });
     }
 
-    LiveData<MovieDetail> getMovieDetail() {
-        return movieDetailData;
-    }
+    LiveData<TvShowDetail> getTvShowDetail () { return tvShowDetailData; }
 
 }

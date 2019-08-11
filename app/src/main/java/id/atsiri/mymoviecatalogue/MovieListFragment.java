@@ -14,25 +14,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import id.atsiri.mymoviecatalogue.adapter.MovieAdapter;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class MovieListFragment extends Fragment implements View.OnClickListener {
-//public class MovieListFragment extends Fragment {
-
     private MovieAdapter adapter;
     private ProgressBar progressBar;
     private MovieViewModel movieViewModel;
-
-//    private RecyclerView rvMovies;
-//    private ArrayList<MovieItems> list = new ArrayList<>();
 
     public MovieListFragment() {
     }
@@ -45,12 +36,6 @@ public class MovieListFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-//        rvMovies = view.findViewById(R.id.rv_movie);
-//        rvMovies.setHasFixedSize(true);
-//
-//        list.addAll(MoviesData.getListData());
-//        showRecyclerList();
 
         movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
         movieViewModel.getMovies().observe(this, getMovie);
@@ -85,14 +70,6 @@ public class MovieListFragment extends Fragment implements View.OnClickListener 
         }
     };
 
-//    View.OnClickListener myListener = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            movieViewModel.setMovie();
-//            showLoading(true);
-//        }
-//    };
-
     private void showLoading(Boolean state) {
         if (state) {
             progressBar.setVisibility(View.VISIBLE);
@@ -111,18 +88,5 @@ public class MovieListFragment extends Fragment implements View.OnClickListener 
         movieDetail.putExtra(MovieDetailActivity.EXTRA_MOVIE, movie);
         startActivity(movieDetail);
     }
-
-//    private void showRecyclerList() {
-//        rvMovies.setLayoutManager(new LinearLayoutManager(this.getActivity()));
-//        MovieAdapter movieCardViewAdapter = new MovieAdapter(list);
-//        rvMovies.setAdapter(movieCardViewAdapter);
-//
-//        movieCardViewAdapter.setOnItemClickCallback(new MovieAdapter.OnItemClickCallback() {
-//            @Override
-//            public void onItemClicked(MovieItems data) {
-//                showSelectedMovie(data);
-//            }
-//        });
-//    }
 
 }

@@ -24,10 +24,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         this.onItemClickCallback = onItemClickCallback;
     }
 
-//    public MovieAdapter(ArrayList<MovieItems> list) {
-//        this.movieList = list;
-//    }
-
     public void setData(ArrayList<MovieItems> items) {
         mData.clear();
         mData.addAll(items);
@@ -50,41 +46,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     public int getItemCount() {
         return mData.size();
     }
-
-//    class ListViewHolder extends RecyclerView.ViewHolder {
-//        ImageView imgPhoto;
-//        TextView tvName, tvMovieDate, tvMovieScore;
-//
-//        ListViewHolder(View itemView) {
-//            super(itemView);
-//            imgPhoto = itemView.findViewById(R.id.img_photo);
-//            tvName = itemView.findViewById(R.id.tv_tittle);
-//            tvMovieDate = itemView.findViewById(R.id.tv_movie_date);
-//            tvMovieScore = itemView.findViewById(R.id.tv_user_score);
-//        }
-//    }
-
-
-//    @Override
-//    public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
-//        MovieItems movie = movieList.get(position);
-//
-//        Glide.with(holder.itemView.getContext())
-//                .load(movie.getBanner())
-//                .into(holder.imgPhoto);
-//
-//        holder.tvName.setText(movie.getName());
-//        holder.tvMovieDate.setText(movie.getMovieDate());
-//        holder.tvMovieScore.setText(movie.getScore());
-//
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onItemClickCallback.onItemClicked(movieList.get(holder.getAdapterPosition()));
-//            }
-//        });
-//
-//    }
 
     class MovieViewHolder extends RecyclerView.ViewHolder {
         ImageView ivBackdropPath;
