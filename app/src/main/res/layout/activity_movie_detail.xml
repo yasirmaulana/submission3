@@ -70,7 +70,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/poster_detail"
             app:layout_constraintTop_toBottomOf="@+id/tv_tittle_detail"
-            tools:text="75%" />
+            android:hint="10"/>
 
         <TextView
             android:id="@+id/str_userscore"

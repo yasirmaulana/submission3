@@ -23,11 +23,11 @@ public class TvShowDetailActivity extends AppCompatActivity {
         tvTsUserScoreDetail = findViewById(R.id.tv_tvshow_userscore_detail);
         tvTsOverviewDetail = findViewById(R.id.tv_tvshow_overview);
 
-        TvShow tvShow = getIntent().getParcelableExtra(EXTRA_TVSHOW);
-        Glide.with(this).load(tvShow.getBanner()).into(imgTsPosterDetail);
-        Glide.with(this).load(tvShow.getPhoto()).into(imgTsPhotoDetail);
-        tvTsTitleDetail.setText(tvShow.getTitle());
-        tvTsUserScoreDetail.setText(tvShow.getUserScore());
-        tvTsOverviewDetail.setText(tvShow.getOverview());
+//        TvShowItems tvShowItems = getIntent().getParcelableExtra(EXTRA_TVSHOW);
+//        Glide.with(this).load(tvShowItems.getBanner()).into(imgTsPosterDetail);
+//        Glide.with(this).load(tvShowItems.getPhoto()).into(imgTsPhotoDetail);
+//        tvTsTitleDetail.setText(tvShowItems.getTitle());
+//        tvTsUserScoreDetail.setText(tvShowItems.getUserScore());
+//        tvTsOverviewDetail.setText(tvShowItems.getOverview());
     }
 }

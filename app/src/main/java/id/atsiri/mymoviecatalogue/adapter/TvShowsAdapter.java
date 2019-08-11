@@ -13,65 +13,57 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import id.atsiri.mymoviecatalogue.R;
-import id.atsiri.mymoviecatalogue.TvShow;
+import id.atsiri.mymoviecatalogue.TvShowItems;
 
-public class TvShowsAdapter extends RecyclerView.Adapter<TvShowsAdapter.CardViewViewHolder> {
-    private ArrayList<TvShow> listTvShow;
-    private OnItemClickCallback onItemClickCallback;
+public class TvShowsAdapter extends RecyclerView.Adapter<TvShowsAdapter.TvShowViewHolder> {
+    private ArrayList<TvShowItems> mData = new ArrayList<>();
 
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-
-    public TvShowsAdapter(ArrayList<TvShow> list) {
-        this.listTvShow = list;
+    public void setData(ArrayList<TvShowItems> items) {
+        mData.clear();
+        mData.addAll(items);
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_cardview_tvshow, viewGroup, false);
-        return new CardViewViewHolder(view);
+    public TvShowViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
+        View mView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_cardview_tvshow, viewGroup, false);
+        return new TvShowViewHolder(mView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final CardViewViewHolder holder, int position) {
-        TvShow tvShow = listTvShow.get(position);
-
-        Glide.with(holder.itemView.getContext())
-                .load(tvShow.getBanner())
-                .into(holder.imgBanner);
-        holder.tvTitle.setText(tvShow.getTitle());
-        holder.tvUserScore.setText(tvShow.getUserScore());
-        holder.tvTvShowDate.setText(tvShow.getTvShowDate());
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onItemClickCallback.onItemClicked(listTvShow.get(holder.getAdapterPosition()));
-            }
-        });
+    public void onBindViewHolder(@NonNull TvShowViewHolder tvShowViewHolder, int position) {
+        tvShowViewHolder.bind(mData.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return listTvShow.size();
+        return mData.size();
     }
 
-    class CardViewViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgBanner;
-        TextView tvTitle, tvUserScore, tvTvShowDate;
+    class TvShowViewHolder extends RecyclerView.ViewHolder {
+        ImageView ivBackdropPath;
+        TextView tvVoteAverage;
+        TextView tvTitle;
+        TextView tvFirstAirDate;
 
-        CardViewViewHolder(@NonNull View itemView) {
+        TvShowViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgBanner = itemView.findViewById(R.id.img_banner_tvshow);
-            tvTitle = itemView.findViewById(R.id.tv_title_tvshow);
-            tvUserScore = itemView.findViewById(R.id.tv_user_score_tvshow);
-            tvTvShowDate = itemView.findViewById(R.id.tv_tvshow_date);
+            ivBackdropPath = itemView.findViewById(R.id.backdrop_tvshow);
+            tvVoteAverage = itemView.findViewById(R.id.vote_average_tvshow);
+            tvTitle = itemView.findViewById(R.id.title_tvshow);
+            tvFirstAirDate = itemView.findViewById(R.id.first_air_date_tvshow);
+        }
+
+        void bind(final TvShowItems tvShowItems) {
+            tvVoteAverage.setText(tvShowItems.getVoteAverage());
+            tvTitle.setText(tvShowItems.getTitle());
+            tvFirstAirDate.setText(tvShowItems.getFirstAirDate());
+
+            Glide.with(itemView.getContext())
+                    .load(tvShowItems.getBackdropPath())
+                    .into(ivBackdropPath);
         }
     }
 
-    public interface OnItemClickCallback {
-        void onItemClicked(TvShow data);
-    }
 }

@@ -35,7 +35,6 @@ public class MovieListFragment extends Fragment implements View.OnClickListener 
 //    private ArrayList<MovieItems> list = new ArrayList<>();
 
     public MovieListFragment() {
-        // Required empty public constructor
     }
 
     @Override

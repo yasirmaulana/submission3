@@ -39,11 +39,6 @@ public class MovieDetailActivity extends AppCompatActivity {
         movieDetailViewModel.setMovieDetail(movieId);
         showLoading(true);
 
-//        Glide.with(this).load(movie.getPoster()).into(imgPhotoDetail);
-//        Glide.with(this).load(movie.getBanner()).into(imgPosterDetail);
-//        tvTittleDetail.setText(movie.getId());
-//        tvUserScoreDetail.setText(movie.getScore());
-//        tvOverview.setText(movie.getOverview());
     }
 
     private Observer<MovieDetail> getModelMovieDetail = new Observer<MovieDetail>() {

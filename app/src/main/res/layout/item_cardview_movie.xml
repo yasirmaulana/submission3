@@ -2,7 +2,6 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cv_movies"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
@@ -44,8 +43,8 @@
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    android:hint="vote average"/>
-                    <!--tools:text="@string/user_score" />-->
+                    android:hint="vote average"
+                    tools:text="@string/user_score" />
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -53,8 +52,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:hint="title"/>
-                    <!--tools:text="@string/movie_title" />-->
+                    android:hint="title"
+                    tools:text="@string/title_tvshow" />
             </TableRow>
 
             <TableRow

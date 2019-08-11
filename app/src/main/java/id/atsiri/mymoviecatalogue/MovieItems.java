@@ -6,13 +6,9 @@ import android.os.Parcelable;
 import org.json.JSONObject;
 
 public class MovieItems implements Parcelable {
-//public class MovieItems {
 
     private int id;
-    private String backdropPath;
-    private String voteAvarage;
-    private String title;
-    private String releaseDate;
+    private String backdropPath, voteAvarage, title, releaseDate;
 
     protected MovieItems(Parcel in) {
         id = in.readInt();
@@ -35,7 +31,7 @@ public class MovieItems implements Parcelable {
     };
 
     public String getBackdropPath() {
-        String sbackdropPath = "https://image.tmdb.org/t/p/w780" + backdropPath;
+        String sbackdropPath = "https://image.tmdb.org/t/p/w342" + backdropPath;
         return sbackdropPath;
     }
 
