@@ -3,6 +3,7 @@ package id.atsiri.mymoviecatalogue;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,8 +24,8 @@ import id.atsiri.mymoviecatalogue.adapter.MovieAdapter;
 /**
  * A simple {@link Fragment} subclass.
  */
-//public class MovieListFragment extends Fragment implements View.OnClickListener {
-public class MovieListFragment extends Fragment {
+public class MovieListFragment extends Fragment implements View.OnClickListener {
+//public class MovieListFragment extends Fragment {
 
     private MovieAdapter adapter;
     private ProgressBar progressBar;
@@ -65,6 +67,13 @@ public class MovieListFragment extends Fragment {
 
         movieViewModel.setMovie();
         showLoading(true);
+
+        adapter.setOnItemClickCallback(new MovieAdapter.OnItemClickCallback() {
+            @Override
+            public void onItemClicked(MovieItems data) {
+                showSelectedMovie(data);
+            }
+        });
     }
 
     private Observer<ArrayList<MovieItems>> getMovie = new Observer<ArrayList<MovieItems>>() {
@@ -77,13 +86,13 @@ public class MovieListFragment extends Fragment {
         }
     };
 
-    View.OnClickListener myListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            movieViewModel.setMovie();
-            showLoading(true);
-        }
-    };
+//    View.OnClickListener myListener = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            movieViewModel.setMovie();
+//            showLoading(true);
+//        }
+//    };
 
     private void showLoading(Boolean state) {
         if (state) {
@@ -93,11 +102,16 @@ public class MovieListFragment extends Fragment {
         }
     }
 
-//    private void showSelectedMovie(MovieItems movie) {
-//        Intent movieDetail = new Intent(getActivity(), MovieDetailActivity.class);
-//        movieDetail.putExtra(MovieDetailActivity.EXTRA_MOVIE, movie);
-//        startActivity(movieDetail);
-//    }
+    @Override
+    public void onClick(View v) {
+    }
+
+    private void showSelectedMovie(MovieItems movie) {
+//        Toast.makeText(getActivity(), movie.getTitle() + " > id :" + movie.getId(), Toast.LENGTH_SHORT).show();
+        Intent movieDetail = new Intent(getActivity(), MovieDetailActivity.class);
+        movieDetail.putExtra(MovieDetailActivity.EXTRA_MOVIE, movie);
+        startActivity(movieDetail);
+    }
 
 //    private void showRecyclerList() {
 //        rvMovies.setLayoutManager(new LinearLayoutManager(this.getActivity()));
@@ -111,8 +125,5 @@ public class MovieListFragment extends Fragment {
 //            }
 //        });
 //    }
-
-//    @Override
-//    public void onClick(View v) { }
 
 }

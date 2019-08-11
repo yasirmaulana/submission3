@@ -18,11 +18,11 @@ import id.atsiri.mymoviecatalogue.R;
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     private ArrayList<MovieItems> mData = new ArrayList<>();
 
-//    private OnItemClickCallback onItemClickCallback;
-//
-//    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
-//        this.onItemClickCallback = onItemClickCallback;
-//    }
+    private OnItemClickCallback onItemClickCallback;
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
 
 //    public MovieAdapter(ArrayList<MovieItems> list) {
 //        this.movieList = list;
@@ -101,7 +101,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
             textViewReleaseDate = itemView.findViewById(R.id.tv_movie_date);
         }
 
-        void bind(MovieItems movieItems) {
+        void bind(final MovieItems movieItems) {
             textViewVoteAverage.setText(movieItems.getVoteAvarage());
             textViewTitle.setText(movieItems.getTitle());
             textViewReleaseDate.setText(movieItems.getReleaseDate());
@@ -110,12 +110,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
                     .load(movieItems.getBackdropPath())
                     .into(ivBackdropPath);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickCallback.onItemClicked(movieItems);
+                }
+            });
         }
 
     }
 
-//    public interface OnItemClickCallback {
-//        void onItemClicked(MovieItems data);
-//    }
+    public interface OnItemClickCallback {
+        void onItemClicked(MovieItems data);
+    }
 
 }

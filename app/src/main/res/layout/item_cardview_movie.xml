@@ -44,7 +44,8 @@
                     android:layout_marginRight="@dimen/activity_horizontal_margin"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:text="@string/user_score" />
+                    android:hint="vote average"/>
+                    <!--tools:text="@string/user_score" />-->
 
                 <TextView
                     android:id="@+id/tv_title"
@@ -52,7 +53,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    tools:text="@string/movie_title" />
+                    android:hint="title"/>
+                    <!--tools:text="@string/movie_title" />-->
             </TableRow>
 
             <TableRow
@@ -67,7 +69,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    tools:text="@string/tanggal_movie" />
+                    android:hint="release_date"/>
+                    <!--tools:text="@string/tanggal_movie" />-->
             </TableRow>
         </TableLayout>
     </LinearLayout>
