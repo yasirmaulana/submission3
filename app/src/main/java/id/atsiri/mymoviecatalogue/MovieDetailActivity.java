@@ -14,11 +14,6 @@ import com.bumptech.glide.Glide;
 
 public class MovieDetailActivity extends AppCompatActivity {
     public static final String EXTRA_MOVIE = "extra_movie";
-    ImageView backdropDetail;
-    ImageView posterDetail;
-    TextView tvTitleDetail;
-    TextView tvUserScoreDetail;
-    TextView tvOverview;
 
     private ProgressBar progressBar;
     private MovieDetailViewModel movieDetailViewModel;
@@ -44,6 +39,12 @@ public class MovieDetailActivity extends AppCompatActivity {
     private Observer<MovieDetail> getModelMovieDetail = new Observer<MovieDetail>() {
         @Override
         public void onChanged(@Nullable MovieDetail movieDetail) {
+            ImageView backdropDetail;
+            ImageView posterDetail;
+            TextView tvTitleDetail;
+            TextView tvUserScoreDetail;
+            TextView tvOverview;
+
             if (movieDetail != null) {
                 String sPath = "https://image.tmdb.org/t/p/w342";
 

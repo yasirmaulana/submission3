@@ -17,7 +17,7 @@ public class TvShowDetailViewModel extends ViewModel {
 
     void setTvShowDetail(final int tvShowId) {
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "https://api.themoviedb.org/3/tv/"+ tvShowId +"?api_key=f5cac66d5ff96a61424f69d3dfe6757d&language=en-US";
+        String url = "https://api.themoviedb.org/3/tv/"+ tvShowId +"?api_key="+ BuildConfig.TMDB_API_KEY +"&language=en-US";
         final TvShowDetail mTvShowDetail = new TvShowDetail();
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
